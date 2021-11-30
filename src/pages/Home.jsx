@@ -8,7 +8,14 @@ export class Home extends React.Component {
 
     state = {
         carrinho: [],
-        listaDeProdutos: [],
+        listaDeProdutos: [
+            {
+                id: 1,
+                name: "Teste Componente de Produto",
+                value: 100.15,
+                imageUrl: "https://picsum.photos/200/200",
+            },
+        ],
     }
 
     // Exemplo de Produto que vai na listaDeProdutos e também no carrinho:
@@ -24,7 +31,7 @@ export class Home extends React.Component {
         return(
             <div>
                 <Header />
-                <Body />
+                <Body listaDeProdutos={this.state.listaDeProdutos}/>
                 <Footer />
             </div>
         )
