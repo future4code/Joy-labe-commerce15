@@ -24,6 +24,8 @@ export class Home extends React.Component {
         ],
     }
 
+    
+
     // Exemplo de Produto que vai na listaDeProdutos e também no carrinho:
 
     // {
