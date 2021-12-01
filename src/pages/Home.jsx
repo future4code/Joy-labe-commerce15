@@ -8,8 +8,23 @@ export class Home extends React.Component {
 
     state = {
         carrinho: [],
-        listaDeProdutos: [],
+        listaDeProdutos: [
+            {
+                id: 1,
+                name: "Teste Componente de Produto",
+                value: 100.15,
+                imageUrl: "https://picsum.photos/200/200",
+            },
+            {
+                id: 2,
+                name: "Teste 2",
+                value: 155.15,
+                imageUrl: "https://picsum.photos/200/200",
+            }
+        ],
     }
+
+    
 
     // Exemplo de Produto que vai na listaDeProdutos e também no carrinho:
 
@@ -20,12 +35,22 @@ export class Home extends React.Component {
     //     imageUrl: "https://picsum.photos/200/200",
     // }
 
+    adicionarCarrinho = (novoItem) => {
+        this.setState({
+            carrinho: [...this.state.carrinho, novoItem],
+        })
+        
+    }
+
     render(){
+
+    console.log("O carrinho é:", this.state.carrinho)
+
         return(
             <div>
                 <Header />
-                <Body />
-                <Footer/>
+                <Body listaDeProdutos={this.state.listaDeProdutos} adicionarCarrinho={this.adicionarCarrinho}/>
+                <Footer />
             </div>
         )
     }
