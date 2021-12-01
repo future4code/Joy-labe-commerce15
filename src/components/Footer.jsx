@@ -1,15 +1,42 @@
 import React from "react";
 import styled from "styled-components";
+import {FaFacebook, FaInstagram, FaLinkedin} from "react-icons/fa";
 
 const TesteFooter = styled.div`
-    background-color: #d2a0a0;
+    background-color: #83AEFB;
+    bottom: 0;
+    position: absolute;
+    width:100%;
+    display: flex;
+    align-itens: center;
+    justify-content: center;
+    color: #fff;
 `
 
 export class Footer extends React.Component {
 
     render() {
         return(
-            <TesteFooter>teste Footer</TesteFooter>
+            <TesteFooter>
+                <p>Criado por: Aline Paulino, Luana Fraporti e Pedro sekine</p>
+                <ul>
+                    <li>
+                        <a href="https://pt-br.facebook.com/login.php">
+                        <FaFacebook/>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/">
+                        <FaInstagram/>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://br.linkedin.com/">
+                        <FaLinkedin/>
+                        </a>
+                    </li>
+                </ul>
+            </TesteFooter>
         )
     }
 }

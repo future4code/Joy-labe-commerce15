@@ -25,7 +25,7 @@ export class Home extends React.Component {
             <div>
                 <Header />
                 <Body />
-                <Footer />
+                <Footer/>
             </div>
         )
     }
