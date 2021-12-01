@@ -15,6 +15,12 @@ export class Home extends React.Component {
                 value: 100.15,
                 imageUrl: "https://picsum.photos/200/200",
             },
+            {
+                id: 2,
+                name: "Teste 2",
+                value: 155.15,
+                imageUrl: "https://picsum.photos/200/200",
+            }
         ],
     }
 
@@ -27,11 +33,21 @@ export class Home extends React.Component {
     //     imageUrl: "https://picsum.photos/200/200",
     // }
 
+    adicionarCarrinho = (novoItem) => {
+        this.setState({
+            carrinho: [...this.state.carrinho, novoItem],
+        })
+        
+    }
+
     render(){
+
+    console.log("O carrinho é:", this.state.carrinho)
+
         return(
             <div>
                 <Header />
-                <Body listaDeProdutos={this.state.listaDeProdutos}/>
+                <Body listaDeProdutos={this.state.listaDeProdutos} adicionarCarrinho={this.adicionarCarrinho}/>
                 <Footer />
             </div>
         )

@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import {BotaoAdicionaCarrinho} from './BotaoAdicionaCarrinho'
 
-
 const EstiloComponenteProduto = styled.div`
     border: 1px solid;
 `
@@ -14,17 +13,26 @@ export class ComponenteProduto extends React.Component {
 
     render(){
 
-        console.log(this.propsListaDeProdutos)
+        let listaDeComponentes = this.propsListaDeProdutos.map((value) => {
+            return (
+                <EstiloComponenteProduto>
+                    <img src={value.imageUrl} />
+                    <p>{value.name}</p>
+                    <p>{value.value}</p>
+                    <BotaoAdicionaCarrinho listaDeProdutos={value} adicionarCarrinho={this.props.adicionarCarrinho}/>           
+                </EstiloComponenteProduto>
+            )
+        })
 
         return(
-            <EstiloComponenteProduto>
-                <img src={this.propsListaDeProdutos[0].imageUrl} />
-                <p>{this.propsListaDeProdutos[0].name}</p>
-                <p>R$ {this.propsListaDeProdutos[0].value}</p>
-                
-                <BotaoAdicionaCarrinho listaDeProdutos={this.propsListaDeProdutos} adicionarCarrinho={this.props.adicionarCarrinho}/>           
-
-            </EstiloComponenteProduto>
+            <div>{listaDeComponentes}</div>
         )
     }
 }
+
+    // {
+    //     id: 1,
+    //     name: "Foguete da Missão Apollo 11",
+    //     value: 10000.0,
+    //     imageUrl: "https://picsum.photos/200/200",
+    // }
