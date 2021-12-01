@@ -17,8 +17,6 @@ export class BotaoAdicionaCarrinho extends React.Component {
     adicionarCarrinho = () => {
         this.props.adicionarCarrinho(this.produtoAdicionadoAoCarrinho)
 
-        console.log("Produto adicionado ao Carrinho:", this.produtoAdicionadoAoCarrinho)
-
     }
 
     render(){
