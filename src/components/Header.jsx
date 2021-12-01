@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { BarraDeBusca } from "./BarraDeBusca";
 import  BotaoCarrinho  from "../images/shopping_cart_black_24dp.svg";
 import Foguete from "../images/rocket.png"
+import {ComponenteBotaoCarrinho} from '../components/ComponenteBotaoCarrinho'
 
 const TesteHeader = styled.div`
     background-color: #82c791;
@@ -16,7 +17,7 @@ max-width: 50px;`
 const BarraPesquisa = styled.div`
 width: 400px; 
 height: 35px;  
-margen: left 300px;
+margin: left 300px;
 background-position: center;  
 background-repeat: no-repeat;
 background-color: #fff; 
@@ -48,6 +49,8 @@ export class Header extends React.Component {
                 <EstiloFoguete src= {Foguete}/> 
                 <BarraPesquisa src = {BarraDeBusca} />
                 <Carrinho src = {BotaoCarrinho}/>
+                <ComponenteBotaoCarrinho carrinhoProps={this.props.carrinhoProps} adicionaQuantidade={this.props.adicionaQuantidade} diminuiQuantidade={this.props.diminuiQuantidade}/> 
+                {/* Pedro que mexeu nessa linha aqui de cima. Só coloquei ela para testar o carrinho! Mas, se quiser tirar, podemos fazer isso juntos e combinar as nossas partes! */}
             </TesteHeader>
         )
     }
