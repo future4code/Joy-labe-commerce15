@@ -19,7 +19,7 @@ export class Body extends React.Component {
                 <Ordenar />
                 <ValorMinimo />
                 <ValorMaximo />
-                <ComponenteProduto listaDeProdutos={this.props.listaDeProdutos} />
+                <ComponenteProduto listaDeProdutos={this.props.listaDeProdutos} adicionarCarrinho={this.props.adicionarCarrinho} />
 
             </TesteBody>
         )

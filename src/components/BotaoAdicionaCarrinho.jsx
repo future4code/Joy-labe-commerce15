@@ -12,19 +12,20 @@ const BotaoCarrinho = styled.button`
 
 export class BotaoAdicionaCarrinho extends React.Component {
 
-    propsListaDeProdutos = this.props.listaDeProdutos
+    produtoAdicionadoAoCarrinho = this.props.listaDeProdutos
 
     adicionarCarrinho = () => {
-        console.log("clicou no Adicionar Carrinho")
+        this.props.adicionarCarrinho(this.produtoAdicionadoAoCarrinho)
+
+        console.log("Produto adicionado ao Carrinho:", this.produtoAdicionadoAoCarrinho)
+
     }
 
     render(){
-        console.log(this.propsListaDeProdutos)
-
 
 
         return(
-            <BotaoCarrinho onClick={() => this.adicionarCarrinho(this.props.adicionarCarrinho)}><img src={ImagemCarrinho} /></BotaoCarrinho>
+            <BotaoCarrinho onClick={this.adicionarCarrinho}><img src={ImagemCarrinho} /></BotaoCarrinho>
         )
     }
 }
