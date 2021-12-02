@@ -143,7 +143,7 @@ export class ComponenteBotaoCarrinho extends React.Component {
                 totalValorCarrinho = 
                     <CalculadoraValor>
                         <ItemsCalculadoraValor>Total</ItemsCalculadoraValor>
-                        <ItemsCalculadoraValor>R$ {totalValorCarrinho}</ItemsCalculadoraValor>
+                        <ItemsCalculadoraValor>R$ {totalValorCarrinho.toFixed(2)}</ItemsCalculadoraValor>
                     </CalculadoraValor>
 
 

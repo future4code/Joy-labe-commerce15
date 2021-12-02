@@ -28,20 +28,23 @@ export class ComponenteProduto extends React.Component {
 
     render(){
 
-        let listaDeComponentes = this.propsListaDeProdutos.map((value) => {
+        let listaDeComponentes = this.propsListaDeProdutos.map((objeto) => {
+            console.log(objeto)
+
             return (
                 <EstiloComponenteProduto>
-                    <img src={value.imageUrl} />
+                    <img src={objeto.imageUrl} />
                     <InfosProduto>
                         <div>
-                            <p>{value.name}</p>
-                            <p>{value.value}</p>
+                            <p>{objeto.name}</p>
+                            <p>{objeto.value}</p>
                         </div>
-                        <BotaoAdicionaCarrinho listaDeProdutos={value} adicionarCarrinho={this.props.adicionarCarrinho}/>           
+                        <BotaoAdicionaCarrinho listaDeProdutos={objeto} adicionarCarrinho={this.props.adicionarCarrinho}/>           
                     </InfosProduto>
                 </EstiloComponenteProduto>
             )
         })
+
 
         return(
             <EstiloLista>
