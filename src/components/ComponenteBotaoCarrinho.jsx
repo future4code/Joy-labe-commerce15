@@ -1,6 +1,23 @@
 import React from "react";
 import styled from "styled-components";
+import iconeCarrinho from '../images/shopping_cart_black_24dp.svg'
 
+
+const BotaoCarrinhoContainer = styled.button`
+    background-color: white;
+    border: none;
+    border-radius: 50%;
+    padding: 0.75rem;
+    cursor: pointer;
+
+    &:hover {
+        background-color: #C9DCFF;
+    }
+`
+
+const EstiloIconeCarrinho = styled.img`
+    height: 25px;
+`
 
 const EsconderCarrinho = styled.div`
     display: none;
@@ -89,9 +106,11 @@ export class ComponenteBotaoCarrinho extends React.Component {
 
         return(
             <div>
-                <button onClick={this.clicarCarrinho}>Botão Carrinho</button>
-                {carrinhoDeCompras}
-                {totalValorCarrinho}
+                <BotaoCarrinhoContainer onClick={this.clicarCarrinho}><EstiloIconeCarrinho src={iconeCarrinho}/></BotaoCarrinhoContainer>
+                <div>
+                    {carrinhoDeCompras}
+                    {totalValorCarrinho}
+                </div>
             </div>
         )
     }

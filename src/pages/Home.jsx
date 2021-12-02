@@ -22,6 +22,27 @@ export class Home extends React.Component {
                 value: 155.15,
                 imageUrl: "https://picsum.photos/200/200",
                 quantidade: 1
+            },
+            {
+                id: 3,
+                name: "Teste 3",
+                value: 95.23,
+                imageUrl: "https://picsum.photos/200/200",
+                quantidade: 1
+            },
+            {
+                id: 4,
+                name: "Teste 4",
+                value: 334.22,
+                imageUrl: "https://picsum.photos/200/200",
+                quantidade: 1
+            },
+            {
+                id: 5,
+                name: "Teste 5",
+                value: 55.08,
+                imageUrl: "https://picsum.photos/200/200",
+                quantidade: 1
             }
         ],
     }

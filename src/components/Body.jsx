@@ -6,22 +6,31 @@ import { ValorMaximo } from "./ValorMaximo";
 import { ValorMinimo } from "./ValorMinimo";
 
 
-const TesteBody = styled.div`
-    background-color: #e699d0;
+const BodyContainer = styled.div`
+    background-color: white;
+    display: flex;
+`
+
+const Filtros = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 15rem;
+    border-right: 1px solid;
 `
 
 
 export class Body extends React.Component {
     render() {
         return(
-            <TesteBody>
-                teste Body
-                <Ordenar />
-                <ValorMinimo />
-                <ValorMaximo />
+            <BodyContainer>
+                <Filtros>
+                    <Ordenar />
+                    <ValorMinimo />
+                    <ValorMaximo />
+                </Filtros>
                 <ComponenteProduto listaDeProdutos={this.props.listaDeProdutos} adicionarCarrinho={this.props.adicionarCarrinho} />
 
-            </TesteBody>
+            </BodyContainer>
         )
     }
 }
