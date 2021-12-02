@@ -4,6 +4,21 @@ import {BotaoAdicionaCarrinho} from './BotaoAdicionaCarrinho'
 
 const EstiloComponenteProduto = styled.div`
     border: 1px solid;
+    width: 20rem;
+    height: 25rem;
+`
+
+const EstiloLista = styled.div`
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+    gap: 2rem;
+    padding: 2rem;
+`
+
+const InfosProduto = styled.div`
+    display: flex;
+    align-items: center;
 `
 
 export class ComponenteProduto extends React.Component {
@@ -17,15 +32,21 @@ export class ComponenteProduto extends React.Component {
             return (
                 <EstiloComponenteProduto>
                     <img src={value.imageUrl} />
-                    <p>{value.name}</p>
-                    <p>{value.value}</p>
-                    <BotaoAdicionaCarrinho listaDeProdutos={value} adicionarCarrinho={this.props.adicionarCarrinho}/>           
+                    <InfosProduto>
+                        <div>
+                            <p>{value.name}</p>
+                            <p>{value.value}</p>
+                        </div>
+                        <BotaoAdicionaCarrinho listaDeProdutos={value} adicionarCarrinho={this.props.adicionarCarrinho}/>           
+                    </InfosProduto>
                 </EstiloComponenteProduto>
             )
         })
 
         return(
-            <div>{listaDeComponentes}</div>
+            <EstiloLista>
+                {listaDeComponentes}
+            </EstiloLista>
         )
     }
 }
