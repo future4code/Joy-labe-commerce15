@@ -49,7 +49,7 @@ export class Home extends React.Component {
 
     adicionarCarrinho = (novoItem) => {
 
-        // Primeiro, autaliza quantidade com um map
+        // Primeiro, atualiza quantidade com um map
         let carrinhoAtualizado = this.state.carrinho.map((objeto, index) => {
             if (novoItem.id === objeto.id) {
                 objeto.quantidade += 1

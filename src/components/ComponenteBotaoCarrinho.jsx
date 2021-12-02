@@ -23,6 +23,69 @@ const EsconderCarrinho = styled.div`
     display: none;
 `
 
+const EstiloCarrinhoCompleto = styled.div`
+    position: absolute;
+    background-color: #C9DCFF;
+    width: 30rem;
+    right: 1rem;
+    top: 5rem;
+    box-shadow: 0rem 0rem 3rem #545353 ;
+    border-radius: 1rem;
+`
+
+const ProdutoCarrinho = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem;
+`
+
+const ImagemEDescricao = styled.div`
+    display: flex;
+`
+
+const NomeEPreco = styled.div`
+    margin-left:1rem;
+`
+
+const ImagemProdutoCarrinho = styled.img`
+    height: 5rem;
+    border-radius: 50%;
+`
+
+const QuantidadeProduto = styled.div`
+
+    display: flex;
+    align-items: center;
+`
+
+const BotaoQuantidade = styled.button`
+    background-color: transparent;
+    border: none;
+    font-weight: bold;
+    font-size: 1.5rem;
+    padding: 0rem 1rem;
+    cursor: pointer;
+`
+
+const CarrinhoVazio = styled.div`
+    text-align: center;
+    padding: 4rem 0rem;
+`
+
+const CalculadoraValor = styled.div`
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    justify-items: flex-end;
+    padding: 3rem;
+`
+
+const ItemsCalculadoraValor = styled.p`
+    font-weight: bold;
+    padding-left: 2rem;
+`
+
+
 
 export class ComponenteBotaoCarrinho extends React.Component {
     state ={
@@ -56,14 +119,20 @@ export class ComponenteBotaoCarrinho extends React.Component {
             if (carrinhoDeCompras.length) {
                 carrinhoDeCompras = carrinhoDeCompras.map((objeto, index) => {
                     return (
-                        <div>
-                            <img src={objeto.imageUrl}/>
-                            <p>{objeto.name}</p>
-                            <p>{objeto.value}</p>
-                            <button onClick={() => this.diminuiQuantidade(index)}>-</button>
-                            <p>{objeto.quantidade}</p>
-                            <button onClick={() => this.adicionaQuantidade(index)}>+</button>
-                        </div>
+                        <ProdutoCarrinho>
+                            <ImagemEDescricao>
+                                <ImagemProdutoCarrinho src={objeto.imageUrl}/>
+                                <NomeEPreco>
+                                    <p>{objeto.name}</p>
+                                    <p>{objeto.value}</p>
+                                </NomeEPreco>
+                            </ImagemEDescricao>
+                            <QuantidadeProduto>
+                                <BotaoQuantidade onClick={() => this.diminuiQuantidade(index)}>-</BotaoQuantidade>
+                                <p>{objeto.quantidade}</p>
+                                <BotaoQuantidade onClick={() => this.adicionaQuantidade(index)}>+</BotaoQuantidade>
+                            </QuantidadeProduto>
+                        </ProdutoCarrinho>
                     )
                 })
 
@@ -72,14 +141,14 @@ export class ComponenteBotaoCarrinho extends React.Component {
                 }
 
                 totalValorCarrinho = 
-                    <div>
-                        <p>total</p>
-                        <p>{totalValorCarrinho}</p>
-                    </div>
+                    <CalculadoraValor>
+                        <ItemsCalculadoraValor>Total</ItemsCalculadoraValor>
+                        <ItemsCalculadoraValor>R$ {totalValorCarrinho}</ItemsCalculadoraValor>
+                    </CalculadoraValor>
 
 
             } else {
-                carrinhoDeCompras = <div>O Carrinho está vazio </div>
+                carrinhoDeCompras = <CarrinhoVazio>O Carrinho está vazio :( </CarrinhoVazio>
             }
 
 
@@ -107,10 +176,10 @@ export class ComponenteBotaoCarrinho extends React.Component {
         return(
             <div>
                 <BotaoCarrinhoContainer onClick={this.clicarCarrinho}><EstiloIconeCarrinho src={iconeCarrinho}/></BotaoCarrinhoContainer>
-                <div>
+                <EstiloCarrinhoCompleto>
                     {carrinhoDeCompras}
                     {totalValorCarrinho}
-                </div>
+                </EstiloCarrinhoCompleto>
             </div>
         )
     }

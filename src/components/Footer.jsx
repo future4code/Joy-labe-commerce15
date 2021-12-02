@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-// import {FaFacebook, FaInstagram, FaLinkedin} from "react-icons/fa";
+import {FaFacebook, FaInstagram, FaLinkedin} from "react-icons/fa";
 
 const TesteFooter = styled.div`
     background-color: #83AEFB;
@@ -22,17 +22,17 @@ export class Footer extends React.Component {
                 <ul>
                     <li>
                         <a href="https://pt-br.facebook.com/login.php">
-                        {/* <FaFacebook/> */}
+                        <FaFacebook/>
                         </a>
                     </li>
                     <li>
                         <a href="https://www.instagram.com/">
-                        {/* <FaInstagram/> */}
+                        <FaInstagram/>
                         </a>
                     </li>
                     <li>
                         <a href="https://br.linkedin.com/">
-                        {/* <FaLinkedin/> */}
+                        <FaLinkedin/>
                         </a>
                     </li>
                 </ul>
