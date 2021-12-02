@@ -48,6 +48,7 @@ export class Home extends React.Component {
     }
 
     adicionarCarrinho = (novoItem) => {
+        console.log("novoItem",novoItem)
 
         // Primeiro, atualiza quantidade com um map
         let carrinhoAtualizado = this.state.carrinho.map((objeto, index) => {
@@ -68,7 +69,7 @@ export class Home extends React.Component {
         }
 
         if (!jaEstaNoCarrinho) {
-            carrinhoAtualizado = [...carrinhoAtualizado, novoItem]
+            carrinhoAtualizado = [...carrinhoAtualizado, {...novoItem}]
             
             this.setState({
                 carrinho: [...carrinhoAtualizado],
@@ -98,7 +99,7 @@ export class Home extends React.Component {
         carrinhoAtualizado[index].quantidade -= 1
 
         carrinhoAtualizado = carrinhoAtualizado.filter(objeto => {
-            if (objeto.quantidade) {
+            if (objeto.quantidade > 0) {
                 return(true)
             } else {return(false)}
         })
