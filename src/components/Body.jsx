@@ -25,10 +25,10 @@ export class Body extends React.Component {
             <BodyContainer>
                 <Filtros>
                     <Ordenar />
-                    <ValorMinimo />
+                    <ValorMinimo valorMinimo={this.props.valorMinimo} onChangeValorMinimo={this.props.onChangeValorMinimo}/>
                     <ValorMaximo />
                 </Filtros>
-                <ComponenteProduto listaDeProdutos={this.props.listaDeProdutos} adicionarCarrinho={this.props.adicionarCarrinho} />
+                <ComponenteProduto listaFiltrada={this.props.listaFiltrada} adicionarCarrinho={this.props.adicionarCarrinho} />
 
             </BodyContainer>
         )

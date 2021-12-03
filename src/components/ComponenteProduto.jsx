@@ -23,13 +23,12 @@ const InfosProduto = styled.div`
 
 export class ComponenteProduto extends React.Component {
 
-    propsListaDeProdutos = this.props.listaDeProdutos
 
 
     render(){
 
-        let listaDeComponentes = this.propsListaDeProdutos.map((objeto) => {
-            console.log(objeto)
+        let listaDeComponentes = this.props.listaFiltrada.map((objeto) => {
+            console.log("Lista de Componente exibidos",objeto)
 
             return (
                 <EstiloComponenteProduto>
