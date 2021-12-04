@@ -56,6 +56,8 @@ export class Home extends React.Component {
 
     listaFiltrada: [],
     valorMinimo: "",
+    valorMaximo: "",
+    ordemPreco: "",
   };
 
   adicionarCarrinho = (novoItem) => {
@@ -126,11 +128,21 @@ export class Home extends React.Component {
     });
   };
 
- 
+  onChangeValorMaximo = (eventoValorMaximo) => {
+    this.setState({
+      valorMaximo: eventoValorMaximo,
+    });
+  };
+
+  onChangeOrdemPreco = (eventoOrdemPreco) => {
+    this.setState({
+      ordemPreco: eventoOrdemPreco,
+    });
+  };
 
   render() {
-
-    const listaDeProdutosFiltrada = this.state.listaDeProdutos.filter((objeto) => {
+    const listaDeProdutosFiltrada = this.state.listaDeProdutos
+      .filter((objeto) => {
         if (
           this.state.valorMinimo === "" ||
           this.state.valorMinimo <= objeto.value
@@ -139,13 +151,26 @@ export class Home extends React.Component {
         } else {
           return false;
         }
+      })
+      .filter((objeto) => {
+        if (
+          this.state.valorMaximo === "" ||
+          this.state.valorMaximo >= objeto.value
+        ) {
+          return true;
+        } else {
+          return false;
+        }
+      })
+      .sort((a, b) => {
+        if (this.state.ordemPreco === "crescente") {
+          return a.value - b.value
+        } else if (this.state.ordemPreco === "decrescente") {
+          return b.value - a.value
+        }
       });
 
-      console.log("listaDeProdutosFiltrada",listaDeProdutosFiltrada)
-
-
-    console.log("this.state.listaDeProdutos", this.state.listaDeProdutos);
-    console.log("this.listaDeProdutosFiltrada", this.listaDeProdutosFiltrada);
+    console.log("listaDeProdutosFiltrada", listaDeProdutosFiltrada);
 
     return (
       <div>
@@ -159,6 +184,9 @@ export class Home extends React.Component {
           adicionarCarrinho={this.adicionarCarrinho}
           valorMinimo={this.state.valorMinimo}
           onChangeValorMinimo={this.onChangeValorMinimo}
+          valorMaximo={this.state.valorMaximo}
+          onChangeValorMaximo={this.onChangeValorMaximo}
+          onChangeOrdemPreco={this.onChangeOrdemPreco}
         />
         <Footer />
       </div>
