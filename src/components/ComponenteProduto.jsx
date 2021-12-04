@@ -20,6 +20,25 @@ const InfosProduto = styled.div`
     display: flex;
     align-items: center;
 `
+const ImagemProduto = styled.img`
+background-flex;
+width: auto;
+height: 100%;
+overflow: hidden;
+max-height:300px;
+max-width:400px;
+width: 320px;
+height: 320px;  
+`
+const Nome = styled.div`
+text-align;
+`
+const Valor = styled.div`
+text-align;
+`
+
+
+
 
 export class ComponenteProduto extends React.Component {
 
@@ -32,11 +51,11 @@ export class ComponenteProduto extends React.Component {
 
             return (
                 <EstiloComponenteProduto>
-                    <img src={objeto.imageUrl} />
+                    <ImagemProduto src={objeto.imageUrl} />
                     <InfosProduto>
                         <div>
-                            <p>{objeto.name}</p>
-                            <p>{objeto.value}</p>
+                            <Nome>{objeto.name}</Nome>
+                            <Valor>{objeto.value}</Valor>
                         </div>
                         <BotaoAdicionaCarrinho listaDeProdutos={objeto} adicionarCarrinho={this.props.adicionarCarrinho}/>           
                     </InfosProduto>
