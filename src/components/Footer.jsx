@@ -1,16 +1,19 @@
 import React from "react";
 import styled from "styled-components";
 import {FaFacebook, FaInstagram, FaLinkedin} from "react-icons/fa";
+import Foguete from "../images/rocket.png"
 
 const TesteFooter = styled.div`
     background-color: #83AEFB;
     bottom: 0;
-    /* position: absolute; */
     width:100%;
     display: flex;
-    align-itens: center;
     justify-content: center;
     color: #fff;
+`
+const EstiloFoguete = styled.img`
+margin:10px 10px;
+max-width: 50px;
 `
 
 export class Footer extends React.Component {
@@ -18,6 +21,7 @@ export class Footer extends React.Component {
     render() {
         return(
             <TesteFooter>
+                <EstiloFoguete src={Foguete} alt="logo" />
                 <p>Criado por: Aline Paulino, Luana Fraporti e Pedro sekine</p>
                 <ul>
                     <li>
