@@ -17,33 +17,60 @@ const EstiloLista = styled.div`
 `;
 
 const InfosProduto = styled.div`
-  display: flex;
-  align-items: center;
-`;
+    display: flex;
+    align-items: center;
+`
+const ImagemProduto = styled.img`
+background-flex;
+width: auto;
+height: 100%;
+overflow: hidden;
+max-height:300px;
+max-width:400px;
+width: 320px;
+height: 320px;  
+`
+const Nome = styled.div`
+text-align;
+`
+const Valor = styled.div`
+text-align;
+`
+
+
+
 
 export class ComponenteProduto extends React.Component {
-  render() {
-    let listaDeComponentes = this.props.listaFiltrada.map((objeto) => {
 
-      return (
-        <EstiloComponenteProduto>
-          <img src={objeto.imageUrl} />
-          <InfosProduto>
-            <div>
-              <p>{objeto.name}</p>
-              <p>{objeto.value}</p>
-            </div>
-            <BotaoAdicionaCarrinho
-              listaDeProdutos={objeto}
-              adicionarCarrinho={this.props.adicionarCarrinho}
-            />
-          </InfosProduto>
-        </EstiloComponenteProduto>
-      );
-    });
 
-    return <EstiloLista>{listaDeComponentes}</EstiloLista>;
-  }
+
+    render(){
+
+        let listaDeComponentes = this.props.listaFiltrada.map((objeto) => {
+            console.log("Lista de Componente exibidos",objeto)
+
+            return (
+                <EstiloComponenteProduto>
+                    <ImagemProduto src={objeto.imageUrl} />
+                    <InfosProduto>
+                        <div>
+                            <Nome>{objeto.name}</Nome>
+                            <Valor>{objeto.value}</Valor>
+                        </div>
+                        <BotaoAdicionaCarrinho listaDeProdutos={objeto} adicionarCarrinho={this.props.adicionarCarrinho}/>           
+                    </InfosProduto>
+                </EstiloComponenteProduto>
+            )
+        })
+
+
+        return(
+            <EstiloLista>
+                {listaDeComponentes}
+            </EstiloLista>
+        )
+    }
+ 
 }
 
 // {
