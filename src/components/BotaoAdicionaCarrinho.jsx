@@ -8,6 +8,8 @@ const BotaoCarrinho = styled.button`
     padding: 0.5rem;
     border-radius: 100%;
     cursor: pointer;
+    float: right;
+    margin: 50px 10px 10px 10px;
 `
 
 export class BotaoAdicionaCarrinho extends React.Component {

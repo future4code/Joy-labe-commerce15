@@ -9,42 +9,55 @@ export class Home extends React.Component {
     listaDeProdutos: [
       {
         id: 1,
-        name: "Teste Componente de Produto",
-        value: 100.15,
-        imageUrl: "https://picsum.photos/200/200",
+        name: "Pelúcia Astronauta Super Fofo ",
+        value: 50.99,
+        imageUrl: "https://ae01.alicdn.com/kf/H1ec05c1ddd834ea5a98eecabf09c630fQ/1pc-33-60cm-bonito-recheado-macio-astronauta-brinquedos-de-pel-cia-cosmonauta-vida-real-nave-espacial.jpg_640x640.jpg",
         quantidade: 1,
       },
       {
         id: 2,
-        name: "Teste 2",
-        value: 155.15,
-        imageUrl: "https://picsum.photos/200/200",
+        name: "Conjunto de Brinquedos Astronauta",
+        value: 90.00,
+        imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7mPpWMa5uEgH3O3hyEZVKKM_BUTFXgsdviA&usqp=CAU",
         quantidade: 1,
       },
       {
         id: 3,
-        name: "Teste 3",
-        value: 95.23,
-        imageUrl: "https://picsum.photos/200/200",
+        name: "Roupa Infantil Astronauta",
+        value: 160.00,
+        imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaxVz5APqLosVMM9pWk5kVUZi_3evx--IOLA&usqp=CAU",
         quantidade: 1,
       },
       {
         id: 4,
-        name: "Teste 4",
-        value: 334.22,
-        imageUrl: "https://picsum.photos/200/200",
+        name: "Foguete Divertido",
+        value: 120.00,
+        imageUrl: "https://i.ytimg.com/vi/BaHkNVt_k2Q/maxresdefault.jpg",
         quantidade: 1,
       },
       {
         id: 5,
-        name: "Teste 5",
-        value: 55.08,
-        imageUrl: "https://picsum.photos/200/200",
+        name: "Roupa Completa de Astronauta",
+        value: 400.00,
+        imageUrl: "http://blogdebrinquedo.com.br/wp-content/uploads/2009/05/mochila-astronauta-02.jpg",
         quantidade: 1,
       },
+      {
+        id: 6,
+        name: "Capacete de Astronauta",
+        value: 250.00,
+        imageUrl: "https://thumbs.dreamstime.com/b/crian%C3%A7a-brincando-com-capacete-astronauta-e-foguete-de-brinquedo-menino-sorridente-feliz-usando-uma-fantasia-nave-espacial-pijama-190657857.jpg",
+        quantidade: 1,
+      },
+
     ],
+
+
+
     listaFiltrada: [],
     valorMinimo: "",
+    valorMaximo: "",
+    ordemPreco: "",
   };
 
   adicionarCarrinho = (novoItem) => {
@@ -115,11 +128,21 @@ export class Home extends React.Component {
     });
   };
 
- 
+  onChangeValorMaximo = (eventoValorMaximo) => {
+    this.setState({
+      valorMaximo: eventoValorMaximo,
+    });
+  };
+
+  onChangeOrdemPreco = (eventoOrdemPreco) => {
+    this.setState({
+      ordemPreco: eventoOrdemPreco,
+    });
+  };
 
   render() {
-
-    const listaDeProdutosFiltrada = this.state.listaDeProdutos.filter((objeto) => {
+    const listaDeProdutosFiltrada = this.state.listaDeProdutos
+      .filter((objeto) => {
         if (
           this.state.valorMinimo === "" ||
           this.state.valorMinimo <= objeto.value
@@ -128,13 +151,26 @@ export class Home extends React.Component {
         } else {
           return false;
         }
+      })
+      .filter((objeto) => {
+        if (
+          this.state.valorMaximo === "" ||
+          this.state.valorMaximo >= objeto.value
+        ) {
+          return true;
+        } else {
+          return false;
+        }
+      })
+      .sort((a, b) => {
+        if (this.state.ordemPreco === "crescente") {
+          return a.value - b.value
+        } else if (this.state.ordemPreco === "decrescente") {
+          return b.value - a.value
+        }
       });
 
-      console.log("listaDeProdutosFiltrada",listaDeProdutosFiltrada)
-
-
-    console.log("this.state.listaDeProdutos", this.state.listaDeProdutos);
-    console.log("this.listaDeProdutosFiltrada", this.listaDeProdutosFiltrada);
+    console.log("listaDeProdutosFiltrada", listaDeProdutosFiltrada);
 
     return (
       <div>
@@ -148,6 +184,9 @@ export class Home extends React.Component {
           adicionarCarrinho={this.adicionarCarrinho}
           valorMinimo={this.state.valorMinimo}
           onChangeValorMinimo={this.onChangeValorMinimo}
+          valorMaximo={this.state.valorMaximo}
+          onChangeValorMaximo={this.onChangeValorMaximo}
+          onChangeOrdemPreco={this.onChangeOrdemPreco}
         />
         <Footer />
       </div>

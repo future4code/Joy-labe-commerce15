@@ -21,6 +21,10 @@ display: inline-block;
 margin: 8px;
 font-size: 25px;
 `
+const EstiloFoguete = styled.img`
+margin:10px 10px;
+max-width: 50px;
+`
 
 
 export class Footer extends React.Component {
@@ -29,6 +33,7 @@ export class Footer extends React.Component {
         return(
             <TesteFooter>
                 <EstiloFoguete src= {Foguete}/>
+
                 <p>Criado por: Aline Paulino, Luana Fraporti e Pedro sekine</p>
                 <EstiloSocial>
                         <a href="https://pt-br.facebook.com/login.php">
