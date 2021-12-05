@@ -124,8 +124,10 @@ export class ComponenteBotaoCarrinho extends React.Component {
   calculaValorTotal = () => {
     let totalValorCarrinho = 0;
 
-    for (const itemCarrinho of this.props.carrinhoProps) {
-      totalValorCarrinho += itemCarrinho.value * itemCarrinho.quantidade;
+    if (this.props.carrinhoProps.length){
+      for (const itemCarrinho of this.props.carrinhoProps) {
+        totalValorCarrinho += itemCarrinho.value * itemCarrinho.quantidade;
+      }  
     }
 
     return totalValorCarrinho;
