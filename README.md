@@ -1,8 +1,12 @@
-Sejam bem vindos ao Labe-commerce, esse repositório contém um esqueleto de app React e um .gitignore.
+# Boas-vindas à Espaçoteca 🚀
 
+*Esse projeto foi feito por: Aline Paulino, Luana Fraporti e Pedro Sekine.* 
 
-Sekine: Teste de Push só para ver se está tudo certo com o meu git!
+A ideia dele é colocar em prática o que foi aprendido em React até esta etapa do curso. O modelo proposto é 100% funcional e segue o problema fornecido. Além disso, adicionamos algumas funcionalidades que devem melhorar a experiência do usuário:
 
-Teste da Lú!
+- Botão de "Limpar Filtros"
+- Contador de item únicos no carrinho, mesmo que este esteja fechado
+- Ordenação por nome
 
-Teste da Aline
+Também fizemos os desafios propostos: caso o usuário recarregue a página, `localStorage` vai fazer com que os itens no carrinho não sejam perdidos.
+
