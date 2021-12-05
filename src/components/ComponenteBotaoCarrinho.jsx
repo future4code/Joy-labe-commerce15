@@ -197,16 +197,19 @@ export class ComponenteBotaoCarrinho extends React.Component {
 
     let sinalTamanhoCarrinho;
 
-    const contadorCarrinho = this.props.carrinhoProps.length;
-    if (contadorCarrinho) {
-      sinalTamanhoCarrinho = (
-        <EstiloSinalTamanhoCarrinho>
-          {contadorCarrinho}
-        </EstiloSinalTamanhoCarrinho>
-      );
-    } else {
-      sinalTamanhoCarrinho = null;
+    if (this.props.carrinhoProps) {
+      const contadorCarrinho = this.props.carrinhoProps.length;
+      if (contadorCarrinho) {
+        sinalTamanhoCarrinho = (
+          <EstiloSinalTamanhoCarrinho>
+            {contadorCarrinho}
+          </EstiloSinalTamanhoCarrinho>
+        );
+      } else {
+        sinalTamanhoCarrinho = null;
+      }
     }
+    
 
     // const sinalTamanhoCarrinho = <EstiloSinalTamanhoCarrinho>{contadorCarrinho}</EstiloSinalTamanhoCarrinho>
 
