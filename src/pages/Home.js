@@ -179,6 +179,12 @@ export class Home extends React.Component {
     console.log("carrinho typeof", typeof this.state.carrinho)
     console.log("carrinho", this.state.carrinho)
 
+    if (!this.state.carrinho) {
+      this.setState({
+        carrinho: [...novoItem]
+      })
+    }
+
     // Primeiro, atualiza quantidade com um map
     let carrinhoAtualizado = [...this.state.carrinho.map((objeto, index) => {
       if (novoItem.id === objeto.id) {
