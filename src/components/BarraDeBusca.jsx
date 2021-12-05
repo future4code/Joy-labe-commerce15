@@ -27,7 +27,7 @@ export class BarraDeBusca extends React.Component {
           value={this.props.buscaProduto}
           onChange={this.onChangeBuscaProduto}
         />
-        <img src={IconeLupa} />
+        <img src={IconeLupa} alt="ícone de lupa da barra de pesquisa" />
       </div>
     );
   }

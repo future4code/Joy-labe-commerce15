@@ -34,8 +34,7 @@ const ImagemProduto = styled.img`
   height: 100%;
   object-fit: cover;
 `;
-const Nome = styled.div`
-`;
+const Nome = styled.div``;
 
 const Valor = styled.div`
   font-weight: bold;
@@ -44,24 +43,24 @@ const Valor = styled.div`
 `;
 
 const TesteSpan = styled.span`
-    font-size: 0.8rem;
-    font-weight: normal;
-`
+  font-size: 0.8rem;
+  font-weight: normal;
+`;
 
 export class ComponenteProduto extends React.Component {
   render() {
     let listaDeComponentes = this.props.listaFiltrada.map((objeto) => {
-      console.log("Lista de Componente exibidos", objeto);
-
       return (
-        <EstiloComponenteProduto>
+        <EstiloComponenteProduto key={objeto.name}>
           <ImagemContainer>
             <ImagemProduto src={objeto.imageUrl} />
           </ImagemContainer>
           <InfosProduto>
             <div>
               <Nome>{objeto.name}</Nome>
-              <Valor><TesteSpan>R$</TesteSpan> {objeto.value}</Valor>
+              <Valor>
+                <TesteSpan>R$</TesteSpan> {objeto.value}
+              </Valor>
             </div>
             <BotaoAdicionaCarrinho
               listaDeProdutos={objeto}

@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import { BarraDeBusca } from "./BarraDeBusca";
-import BotaoCarrinho from "../images/shopping_cart_black_24dp.svg";
 import Foguete from "../images/rocket.png";
 import { ComponenteBotaoCarrinho } from "../components/ComponenteBotaoCarrinho";
 
@@ -17,10 +16,6 @@ const EstiloFoguete = styled.img`
   margin: 10px 10px;
   max-width: 50px;
 `;
-
-const BarraPesquisa = styled.div``;
-
-const Carrinho = styled.img``;
 
 export class Header extends React.Component {
   render() {
