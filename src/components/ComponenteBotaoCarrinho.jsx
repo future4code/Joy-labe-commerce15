@@ -12,6 +12,10 @@ const BotaoCarrinhoContainer = styled.button`
   &:hover {
     background-color: #c9dcff;
   }
+
+  &:active {
+    background-color: #a6c5ff;
+  }
 `;
 
 const EstiloIconeCarrinho = styled.img`
@@ -49,7 +53,9 @@ const NomeEPreco = styled.div`
 
 const ImagemProdutoCarrinho = styled.img`
   height: 5rem;
+  width: 5rem;
   border-radius: 50%;
+  object-fit: cover;
 `;
 
 const QuantidadeProduto = styled.div`
@@ -82,6 +88,19 @@ const ItemsCalculadoraValor = styled.p`
   font-weight: bold;
   padding-left: 2rem;
 `;
+
+const EstiloSinalTamanhoCarrinho = styled.div`
+  position: absolute;
+  right: 0.4rem;
+  top: 0.3rem;
+  background-color: #ff6b6b;
+  border-radius: 50%;
+  height: 1.5rem;
+  width: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
 
 export class ComponenteBotaoCarrinho extends React.Component {
   state = {
@@ -167,16 +186,22 @@ export class ComponenteBotaoCarrinho extends React.Component {
       );
     }
 
-    // let totalValorCarrinho = 0
+    let sinalTamanhoCarrinho
 
-    // for (const objeto of this.props.carrinhoProps) {
-    //     totalValorCarrinho += objeto.value * objeto.quantidade
-    // }
+    const contadorCarrinho = this.props.carrinhoProps.length
+    if (contadorCarrinho) {
+      sinalTamanhoCarrinho = <EstiloSinalTamanhoCarrinho>{contadorCarrinho}</EstiloSinalTamanhoCarrinho>
+    } else {
+      sinalTamanhoCarrinho = null
+    }
+
+    // const sinalTamanhoCarrinho = <EstiloSinalTamanhoCarrinho>{contadorCarrinho}</EstiloSinalTamanhoCarrinho>
 
     return (
       <div>
         <BotaoCarrinhoContainer onClick={this.clicarCarrinho}>
           <EstiloIconeCarrinho src={iconeCarrinho} />
+          {sinalTamanhoCarrinho}
         </BotaoCarrinhoContainer>
         <EstiloCarrinhoCompleto>
           {carrinhoDeCompras}
@@ -186,12 +211,3 @@ export class ComponenteBotaoCarrinho extends React.Component {
     );
   }
 }
-
-// Exemplo de Produto que vai na listaDeProdutos e também no carrinho:
-
-// {
-//     id: 1,
-//     name: "Foguete da Missão Apollo 11",
-//     value: 10000.0,
-//     imageUrl: "https://picsum.photos/200/200",
-// }
