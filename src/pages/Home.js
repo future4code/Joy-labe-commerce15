@@ -181,7 +181,7 @@ export class Home extends React.Component {
 
     if (!this.state.carrinho) {
       this.setState({
-        carrinho: [...novoItem]
+        carrinho: [{...novoItem}]
       })
     }
 
