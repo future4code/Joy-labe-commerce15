@@ -280,9 +280,20 @@ export class Home extends React.Component {
   componentDidMount() {
     const carrinhoLocalStorage = JSON.parse(localStorage.getItem("carrinho"))
 
-    this.setState({
-      carrinho: carrinhoLocalStorage
-    })
+    if (!carrinhoLocalStorage) {
+      this.setState({
+        carrinho:[]
+      })
+    } else {
+      this.setState({
+        carrinho: carrinhoLocalStorage
+      })
+    }
+
+    console.log("carrinhoLocalStorage",carrinhoLocalStorage)
+    console.log("carrinhoLocalStorage typeof", typeof carrinhoLocalStorage)
+
+    
   }
 
   componentDidUpdate() {
