@@ -177,6 +177,8 @@ export class Home extends React.Component {
 
   adicionarCarrinho = (novoItem) => {
     console.log("novoItem", novoItem);
+    console.log("carrinho typeof", typeof this.state.carrinho)
+    console.log("carrinho", this.state.carrinho)
 
     // Primeiro, atualiza quantidade com um map
     let carrinhoAtualizado = [...this.state.carrinho.map((objeto, index) => {
