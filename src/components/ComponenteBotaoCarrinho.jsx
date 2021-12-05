@@ -100,7 +100,7 @@ const EstiloSinalTamanhoCarrinho = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-`
+`;
 
 export class ComponenteBotaoCarrinho extends React.Component {
   state = {
@@ -124,10 +124,10 @@ export class ComponenteBotaoCarrinho extends React.Component {
   calculaValorTotal = () => {
     let totalValorCarrinho = 0;
 
-    if (this.props.carrinhoProps.length){
+    if (this.props.carrinhoProps.length) {
       for (const itemCarrinho of this.props.carrinhoProps) {
         totalValorCarrinho += itemCarrinho.value * itemCarrinho.quantidade;
-      }  
+      }
     }
 
     return totalValorCarrinho;
@@ -176,25 +176,30 @@ export class ComponenteBotaoCarrinho extends React.Component {
           <CarrinhoVazio>O Carrinho está vazio :( </CarrinhoVazio>
         );
       }
-
-      if (totalValorCarrinho === 0) {
-        totalValorCarrinho = null;
-      }
-    } else {
-      carrinhoDeCompras = null;
+      // quero comentar o que está aqui embaixo
+      // if (totalValorCarrinho === 0) {
+      //   totalValorCarrinho = null;
+      // }
+    } 
+    else {
+      carrinhoDeCompras = [];
 
       totalValorCarrinho = (
         <EsconderCarrinho>{totalValorCarrinho}</EsconderCarrinho>
       );
     }
 
-    let sinalTamanhoCarrinho
+    let sinalTamanhoCarrinho;
 
-    const contadorCarrinho = this.props.carrinhoProps.length
+    const contadorCarrinho = this.props.carrinhoProps.length;
     if (contadorCarrinho) {
-      sinalTamanhoCarrinho = <EstiloSinalTamanhoCarrinho>{contadorCarrinho}</EstiloSinalTamanhoCarrinho>
+      sinalTamanhoCarrinho = (
+        <EstiloSinalTamanhoCarrinho>
+          {contadorCarrinho}
+        </EstiloSinalTamanhoCarrinho>
+      );
     } else {
-      sinalTamanhoCarrinho = null
+      sinalTamanhoCarrinho = null;
     }
 
     // const sinalTamanhoCarrinho = <EstiloSinalTamanhoCarrinho>{contadorCarrinho}</EstiloSinalTamanhoCarrinho>
