@@ -179,13 +179,13 @@ export class Home extends React.Component {
     console.log("novoItem", novoItem);
 
     // Primeiro, atualiza quantidade com um map
-    let carrinhoAtualizado = this.state.carrinho.map((objeto, index) => {
+    let carrinhoAtualizado = [...this.state.carrinho.map((objeto, index) => {
       if (novoItem.id === objeto.id) {
         return { ...objeto, quantidade: objeto.quantidade + 1 };
       } else {
         return objeto;
       }
-    });
+    })];
 
     // Segundo, coloca o item no carrinho se ele não estiver no carrinho ainda
 
@@ -212,7 +212,7 @@ export class Home extends React.Component {
   };
 
   adicionaQuantidade = (index) => {
-    let carrinhoAtualizado = this.state.carrinho;
+    let carrinhoAtualizado = [...this.state.carrinho];
     carrinhoAtualizado[index].quantidade += 1;
 
     this.setState({
@@ -221,7 +221,7 @@ export class Home extends React.Component {
   };
 
   diminuiQuantidade = (index) => {
-    let carrinhoAtualizado = this.state.carrinho;
+    let carrinhoAtualizado = [...this.state.carrinho];
     carrinhoAtualizado[index].quantidade -= 1;
 
     carrinhoAtualizado = carrinhoAtualizado.filter((objeto) => {
