@@ -5,7 +5,7 @@ import { Header } from "../components/Header";
 
 export class Home extends React.Component {
   state = {
-    carrinho: [],
+    carrinho: new Array(),
     listaDeProdutos: [
       {
         id: 19,
