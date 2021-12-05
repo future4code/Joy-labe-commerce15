@@ -1,13 +1,16 @@
 import React from "react";
 import styled from "styled-components";
 import { ComponenteProduto } from "./ComponenteProduto";
-import { OrdenarPreco } from "./OrdenarPreco";
+import { LimparFiltros } from "./LimparFiltros";
+import { Ordenar } from "./Ordenar";
 import { ValorMaximo } from "./ValorMaximo";
 import { ValorMinimo } from "./ValorMinimo";
+
 
 const BodyContainer = styled.div`
   background-color: white;
   display: flex;
+  width: 100vh;
 `;
 
 const Filtros = styled.div`
@@ -23,17 +26,16 @@ export class Body extends React.Component {
     return (
       <BodyContainer>
         <Filtros>
-          <OrdenarPreco
-            onChangeOrdemPreco={this.props.onChangeOrdemPreco}
-          />
+          <Ordenar onChangeOrdem={this.props.onChangeOrdem} />
           <ValorMinimo
             valorMinimo={this.props.valorMinimo}
             onChangeValorMinimo={this.props.onChangeValorMinimo}
           />
-          <ValorMaximo 
+          <ValorMaximo
             valorMaximo={this.props.valorMaximo}
             onChangeValorMaximo={this.props.onChangeValorMaximo}
-            />
+          />
+          <LimparFiltros onClickLimparFiltros={this.props.onClickLimparFiltros} />
         </Filtros>
         <ComponenteProduto
           listaFiltrada={this.props.listaFiltrada}

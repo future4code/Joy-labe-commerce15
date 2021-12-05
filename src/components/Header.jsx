@@ -27,7 +27,10 @@ export class Header extends React.Component {
     return (
       <HeaderContainer>
         <EstiloFoguete src={Foguete} />
-        <BarraDeBusca />
+        <BarraDeBusca
+          buscaProduto={this.props.buscaProduto}
+          onChangeBuscaProduto={this.props.onChangeBuscaProduto}
+        />
         <ComponenteBotaoCarrinho
           carrinhoProps={this.props.carrinhoProps}
           adicionaQuantidade={this.props.adicionaQuantidade}
