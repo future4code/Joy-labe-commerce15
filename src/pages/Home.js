@@ -167,12 +167,11 @@ export class Home extends React.Component {
       },
     ],
 
-    listaFiltrada: [],
     valorMinimo: "",
     valorMaximo: "",
     ordenacao: "",
     buscaProduto: "",
-    carrinho: new Array(),
+    carrinho: [],
   };
 
   adicionarCarrinho = (novoItem) => {
