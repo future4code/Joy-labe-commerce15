@@ -124,10 +124,14 @@ export class ComponenteBotaoCarrinho extends React.Component {
   calculaValorTotal = () => {
     let totalValorCarrinho = 0;
 
-    const ArrayCarrinhoSoma = this.props.carrinhoProps.map(objeto => {
-      totalValorCarrinho = totalValorCarrinho + objeto.value * objeto.quantidade
-      return objeto
-    })
+    if (this.props.carrinhoProps){
+      const ArrayCarrinhoSoma = this.props.carrinhoProps.map((objeto) => {
+        totalValorCarrinho =
+          totalValorCarrinho + objeto.value * objeto.quantidade;
+        return objeto;
+      });
+    }
+    
 
     // for (const itemCarrinho of this.props.carrinhoProps) {
     //   totalValorCarrinho += itemCarrinho.value * itemCarrinho.quantidade;
@@ -141,7 +145,7 @@ export class ComponenteBotaoCarrinho extends React.Component {
 
     let totalValorCarrinho = this.calculaValorTotal();
 
-    totalValorCarrinho = (
+    let componenteTotalValorCarrinho = (
       <CalculadoraValor>
         <ItemsCalculadoraValor>Total</ItemsCalculadoraValor>
         <ItemsCalculadoraValor>
@@ -186,8 +190,8 @@ export class ComponenteBotaoCarrinho extends React.Component {
     } else {
       carrinhoDeCompras = [];
 
-      totalValorCarrinho = (
-        <EsconderCarrinho>{totalValorCarrinho}</EsconderCarrinho>
+      componenteTotalValorCarrinho = (
+        <EsconderCarrinho>{componenteTotalValorCarrinho}</EsconderCarrinho>
       );
     }
 
@@ -214,7 +218,7 @@ export class ComponenteBotaoCarrinho extends React.Component {
         </BotaoCarrinhoContainer>
         <EstiloCarrinhoCompleto>
           {carrinhoDeCompras}
-          {totalValorCarrinho}
+          {componenteTotalValorCarrinho}
         </EstiloCarrinhoCompleto>
       </div>
     );
