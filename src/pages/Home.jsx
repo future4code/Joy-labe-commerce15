@@ -274,7 +274,7 @@ export class Home extends React.Component {
     const carrinhoLocalStorage = JSON.parse(localStorage.getItem("carrinho"))
 
     this.setState({
-      carrinho: [...carrinhoLocalStorage]
+      carrinho: carrinhoLocalStorage
     })
   }
 
