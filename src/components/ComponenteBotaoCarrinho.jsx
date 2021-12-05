@@ -108,9 +108,13 @@ export class ComponenteBotaoCarrinho extends React.Component {
   };
 
   clicarCarrinho = () => {
-    this.setState({
-      mostrarCarrinho: !this.state.mostrarCarrinho,
-    });
+    if (this.props.carrinhoProps) {
+      this.setState({
+        mostrarCarrinho: !this.state.mostrarCarrinho,
+      });      
+    }
+
+
   };
 
   adicionaQuantidade = (index) => {
